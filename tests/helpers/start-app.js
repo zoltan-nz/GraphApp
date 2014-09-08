@@ -1,8 +1,6 @@
-/* global require */
-
-var Application = require('graph-app/app')['default'];
-var Router = require('graph-app/router')['default'];
 import Ember from 'ember';
+import Application from 'graph-app/app';
+import Router from 'graph-app/router';
 
 export default function startApp(attrs) {
   var App;

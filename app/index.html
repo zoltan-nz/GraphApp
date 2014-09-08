@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="assets/graph-app.css">
   </head>
   <body>
+    <script>
+      window.GraphAppENV = {{ENV}};
+      window.EmberENV = window.GraphAppENV.EmberENV;
+    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/graph-app.js"></script>
     <script>
-      window.GraphAppENV = require('graph-app/config/environment')['default'];
-      window.EmberENV = window.GraphAppENV.EmberENV;
       window.GraphApp = require('graph-app/app')['default'].create(GraphAppENV.APP);
     </script>
   </body>
