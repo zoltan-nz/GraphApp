@@ -1,5 +1,7 @@
 {
   "predef": {
+    "Ember": true,
+    "DS": true,
     "document": true,
     "window": true,
     "-Promise": true,

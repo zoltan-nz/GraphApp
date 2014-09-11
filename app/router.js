@@ -5,6 +5,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('sale', { path: 'sales/:sale_id' });
 });
 
 export default Router;

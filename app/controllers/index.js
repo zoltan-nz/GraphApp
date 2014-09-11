@@ -3,11 +3,11 @@ export default Ember.ObjectController.extend({
 
   actions: {
     generateSampleData: function() {
-      _generateSampleData();
+      this._generateSampleData();
     }
   },
 
   _generateSampleData: function() {
-    this.get('store').find('sale');
+    this.store.createRecord('sale', {date: new Date().toString(), amount: Math.random()*1000});
   }
 });
