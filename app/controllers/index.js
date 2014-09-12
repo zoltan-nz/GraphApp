@@ -8,6 +8,6 @@ export default Ember.ObjectController.extend({
   },
 
   _generateSampleData: function() {
-    this.store.createRecord('sale', {date: new Date().toString(), amount: Math.random()*1000});
+    this.store.createRecord('sale', {date: new Date(), amount: Math.random()*1000}).save();
   }
 });
