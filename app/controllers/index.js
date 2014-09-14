@@ -8,6 +8,9 @@ export default Ember.ObjectController.extend({
   },
 
   _generateSampleData: function() {
-    this.store.createRecord('sale', {date: new Date(), amount: Math.random()*1000}).save();
+    var today = new Date();
+    for (var i=60; i > 0; i--) {
+      this.store.createRecord('sale', {date: moment(today).subtract(i, 'days').toString(), amount: Math.random()*1000}).save();
+    }
   }
 });
