@@ -10,16 +10,20 @@ export default Ember.Object.extend({
     return this.container.lookup('controller:application').get('currentRouteName');
   },
 
-  notice: function(message) {
-    this._createMessage(message, 'notice');
+  info: function(message) {
+    this._createMessage(message, 'alert-info');
   },
 
   success: function(message) {
-    this._createMessage(message, 'success');
+    this._createMessage(message, 'alert-success');
   },
 
-  alert: function(message) {
-    this._createMessage(message, 'alert');
+  warning: function(message) {
+    this._createMessage(message, 'alert-warning');
+  },
+
+  danger: function(message) {
+    this._createMessage(message, 'alert-danger');
   },
 
   _createMessage: function(message, type) {
