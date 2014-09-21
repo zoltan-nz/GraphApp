@@ -9,14 +9,14 @@ export default Ember.Component.extend({
   }.property('message.type'),
 
   didInsertElement: function() {
-    Ember.run.later(this, this._removeFlash, 4000);
+    Ember.run.later(this, this._removeAlert, 4000);
   },
 
   click: function() {
-    this._removeFlash();
+    this._removeAlert();
   },
 
-  _removeFlash: function() {
+  _removeAlert: function() {
     this.$().fadeOut(800);
     Ember.run.later(this, function() {this.destroy();}, 4600);
   }
