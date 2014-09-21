@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   }.property('message.type'),
 
   didInsertElement: function() {
+    this.$().fadeIn(800);
     Ember.run.later(this, this._removeAlert, 4000);
   },
 
