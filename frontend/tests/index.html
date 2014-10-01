@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{BASE_TAG}}
+    {{CONFIG_META}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/graph-app.css">
@@ -33,17 +34,10 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
 
-    <script>
-      window.GraphAppENV = {{ENV}};
-      window.EmberENV = window.GraphAppENV.EmberENV;
-    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/test-support.js"></script>
     <script src="assets/graph-app.js"></script>
     <script src="testem.js"></script>
-    <script>
-      require('graph-app/tests/test-helper');
-    </script>
     <script src="assets/test-loader.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 # compiled output
+frontend/bower_components/jquery/src/sizzle/dist
 **/*/dist
 **/*/tmp
 

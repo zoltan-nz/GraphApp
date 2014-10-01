@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import Resolver from 'ember/resolver';
-import loadInitializers from 'ember/load-initializers';
+import loadInitializers from 'ember/load-initializers'
+import config from './config/environment';
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
@@ -13,10 +14,11 @@ Ember.RSVP.on('error', function(error) {
 });
 
 var App = Ember.Application.extend({
-  modulePrefix: 'graph-app', // TODO: loaded via config
+  modulePrefix: config.modulePrefix,
+  podModulePrefix: config.podModulePrefix,
   Resolver: Resolver
 });
 
-loadInitializers(App, 'graph-app');
+loadInitializers(App, config.modulePrefix);
 
 export default App;

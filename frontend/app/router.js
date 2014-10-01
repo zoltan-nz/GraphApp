@@ -1,5 +1,7 @@
+import config from './config/environment';
+
 var Router = Ember.Router.extend({
-  location: GraphAppENV.locationType
+  location: config.locationType
 });
 
 Router.map(function() {
