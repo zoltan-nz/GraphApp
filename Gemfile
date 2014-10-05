@@ -1,2 +1,3 @@
 gem 'dotenv'
-gem 'capistrano'
+gem 'pry'
+gem 'rake'
