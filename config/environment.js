@@ -44,7 +44,8 @@ module.exports = function(environment) {
   }
 
   ENV.contentSecurityPolicy = {
-    'img-src': "'self' data:"
+    'img-src': "'self' data:",
+    'connect-src': "'self' http://localhost:3000 http://api-the-one.herokuapp.com"
   }
 
   return ENV;
