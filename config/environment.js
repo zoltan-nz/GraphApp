@@ -43,5 +43,9 @@ module.exports = function(environment) {
 
   }
 
+  ENV.contentSecurityPolicy = {
+    'img-src': "'self' data:"
+  }
+
   return ENV;
 };

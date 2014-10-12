@@ -13,13 +13,9 @@
     <link rel="stylesheet" href="assets/graph-app.css">
   </head>
   <body>
-    <script>
-      window.EmberENV = {{EMBER_ENV}};
-    </script>
+    {{content-for 'body'}}
+
     <script src="assets/vendor.js"></script>
     <script src="assets/graph-app.js"></script>
-    <script>
-      window.GraphApp = require('graph-app/app')['default'].create({{APP_CONFIG}});
-    </script>
   </body>
 </html>
