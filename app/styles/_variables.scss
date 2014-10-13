@@ -12,17 +12,17 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 //
 //## Gray and brand colors for use across Bootstrap.
 
-$gray-darker:            lighten(#174c4f, 13.5%) !default; // #222
-$gray-dark:              lighten(#174c4f, 20%) !default;   // #333
-$gray:                   lighten(#174c4f, 33.5%) !default; // #555
-$gray-light:             lighten(#174c4f, 46.7%) !default; // #777
-$gray-lighter:           lighten(#174c4f, 93.5%) !default; // #eee
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 46.7%) !default; // #777
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
-$brand-primary:         #FFF0A5 !default;
-$brand-success:         #468966 !default;
-$brand-info:            #ffb03b !default;
-$brand-warning:         #B64926 !default;
-$brand-danger:          #8E2800 !default;
+$brand-primary:         #428bca !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
 
 
 //== Scaffolding
@@ -30,7 +30,7 @@ $brand-danger:          #8E2800 !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #ddd !default;
+$body-bg:               #eee !default;
 //** Global text color on `<body>`.
 $text-color:            $gray-dark !default;
 
@@ -377,7 +377,7 @@ $navbar-default-toggle-border-color:       #ddd !default;
 // Inverted navbar
 // Reset inverted navbar basics
 $navbar-inverse-color:                      $gray-light !default;
-$navbar-inverse-bg:                         #468966 !default;
+$navbar-inverse-bg:                         #222 !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
 
 // Inverted navbar links

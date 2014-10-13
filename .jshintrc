@@ -4,7 +4,10 @@
     "document": true,
     "window": true,
     "-Promise": true,
-    "DS": true
+    "DS": true,
+    "$": true,
+    "GraphApp": true,
+    "EmberENV": true
   },
   "browser" : true,
   "boss" : true,
