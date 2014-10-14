@@ -1,3 +1,9 @@
-<h1>Todos</h1>
+{{#link-to 'todos.new'}}Add new{{/link-to}}
 
 {{outlet}}
+
+{{#each item in controllers.todos}}
+  {{item.body}}
+{{/each}}
+
+Page: {{page}}

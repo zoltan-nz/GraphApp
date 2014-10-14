@@ -1,4 +1,5 @@
 export default Ember.ObjectController.extend({
+  needs: ['todos'],
 
   actions: {
     add: function() {
