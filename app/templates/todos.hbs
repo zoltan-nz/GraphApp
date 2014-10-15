@@ -1,9 +1,12 @@
-{{#link-to 'todos.new'}}Add new{{/link-to}}
+<h1>Todos</h1>
 
-{{outlet}}
-
-{{#each item in controllers.todos}}
-  {{item.body}}
+<table class="table table-bordered">
+  <tr><td>{{#link-to 'todos.new'}}Add new{{/link-to}}</td></tr>
+<tr><td>{{outlet}}</td></tr>
+{{#each}}
+  <tr><td>{{body}}</td></tr>
 {{/each}}
 
-Page: {{page}}
+
+
+</table>
