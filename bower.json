@@ -3,8 +3,8 @@
   "dependencies": {
     "handlebars": "~1.3.0",
     "jquery": "^1.11.1",
-    "ember": "http://builds.emberjs.com/canary/ember.js",
-    "ember-data": "http://builds.emberjs.com/canary/ember-data.js",
+    "ember": "1.8.0-beta.5",
+    "ember-data": "1.0.0-beta.11",
     "ember-resolver": "~0.1.7",
     "loader.js": "stefanpenner/loader.js#1.0.1",
     "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.3",
@@ -16,9 +16,5 @@
     "bootstrap-sass-official": "^3.2.0",
     "d3": "^3.4.11",
     "moment": "^2.8.3"
-  },
-  "resolutions": {
-    "ember": "e-tag:d6d9ef038",
-    "ember-data": "e-tag:cff1e1ac1"
   }
 }
