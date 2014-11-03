@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('edit', { path: '/:todo_id'});
     this.route('delete');
   });
+  this.resource('user', { path: 'users/:user_id' }, function() { });
 });
 
 export default Router;
