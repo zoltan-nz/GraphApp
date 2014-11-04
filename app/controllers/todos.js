@@ -1,3 +1,4 @@
-export default Ember.ArrayController.extend({
-  needs: ['todos']
+import PaginationMixin from 'mixins/pagination';
+
+export default Ember.ArrayController.extend(PaginationMixin, {
 });
