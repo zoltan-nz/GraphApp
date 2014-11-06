@@ -9,3 +9,12 @@ test('it works', function() {
   var subject = PaginationObject.create();
   ok(subject);
 });
+
+test('#totalPages', function() {
+  var subjectController = Ember.ArrayController.extend(PaginationMixin,
+    model: {}
+  });
+  var subject = subjectController.create();
+  ok(subject);
+  ok(subject.totalPages());
+});

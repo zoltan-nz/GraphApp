@@ -12,8 +12,8 @@ module('Acceptance: Index', {
   }
 });
 
-test('visiting /index', function() {
-  visit('/index');
+test('visiting /', function() {
+  visit('/');
 
   andThen(function() {
     equal(currentPath(), 'index');
