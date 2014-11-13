@@ -12,7 +12,6 @@ test('it works', function() {
 
 test('#totalPages', function() {
   var subjectController = Ember.ArrayController.extend(PaginationMixin, {
-    
   });
   var subject = subjectController.create();
   ok(subject);
