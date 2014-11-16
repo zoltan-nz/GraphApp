@@ -7,7 +7,8 @@
     "DS": true,
     "$": true,
     "GraphApp": true,
-    "EmberENV": true
+    "EmberENV": true,
+    "THREE": true
   },
   "browser" : true,
   "boss" : true,

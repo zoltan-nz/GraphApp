@@ -1,11 +1,11 @@
 export default Ember.View.extend({
 
   width: function() {
-    return window.innerWidth
+    return 300;
   }.property(),
 
   height: function() {
-    return window.innerHeight;
+    return 300;
   }.property(),
 
   scene: function() {
@@ -13,11 +13,11 @@ export default Ember.View.extend({
   }.property(),
 
   camera: function() {
-    return new THREE.PerspectiveCamera(75, this.get('width') / this.get('height'))
+    return new THREE.PerspectiveCamera(75, this.get('width') / this.get('height'));
   }.property('width', 'height'),
 
   geometry: function() {
-    return new THREE.BoxGeometry(200, 200, 200);
+    return new THREE.BoxGeometry(100, 100, 100);
   }.property(),
 
   material: function() {
@@ -25,7 +25,7 @@ export default Ember.View.extend({
   }.property(),
 
   mesh: function() {
-    return new THREE.Mesh( this.get('geometry'), this.get('material'))
+    return new THREE.Mesh( this.get('geometry'), this.get('material'));
   }.property('geometry', 'material'),
 
   renderer: function() {
@@ -40,5 +40,4 @@ export default Ember.View.extend({
     this.get('renderer').render(this.get('scene'), this.get('camera'));
   }
 
-
-})
+});
