@@ -1,30 +1,25 @@
 export default Ember.View.extend({
 
-  width: function() {
-    return 300;
-  }.property(),
-
-  height: function() {
-    return 300;
-  }.property(),
+  width: 300,
+  height: 300,
 
   scene: function() {
     return new THREE.Scene();
   }.property(),
 
   camera: function() {
-    return new THREE.PerspectiveCamera(75, this.get('width') / this.get('height'));
+    return new THREE.PerspectiveCamera(150, 1, 0.1, 1000);
   }.property('width', 'height'),
 
   geometry: function() {
-    return new THREE.BoxGeometry(100, 100, 100);
+    return new THREE.BoxGeometry(1, 1, 1);
   }.property(),
 
   material: function() {
-    return new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true });
+    return new THREE.MeshBasicMaterial( { color: 0xff0000 });
   }.property(),
 
-  mesh: function() {
+  cube: function() {
     return new THREE.Mesh( this.get('geometry'), this.get('material'));
   }.property('geometry', 'material'),
 
@@ -34,10 +29,18 @@ export default Ember.View.extend({
     return renderer;
   }.property('width', 'height'),
 
+  render: function() {
+    requestAnimationFrame (this.get('render'));
+    this.get('renderer').render(this.get('scene'), this.get('camera'));
+  },
+
   didInsertElement: function() {
-    this.get('scene').add(this.get('mesh'));
+    this.get('scene').add(this.get('renderer'));
     this.$().append(this.get('renderer.domElement'));
     this.get('renderer').render(this.get('scene'), this.get('camera'));
+
+    this.render();
+
   }
 
 });
