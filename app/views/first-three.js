@@ -29,18 +29,17 @@ export default Ember.View.extend({
     return renderer;
   }.property('width', 'height'),
 
-  render: function() {
-    requestAnimationFrame (this.get('render'));
-    this.get('renderer').render(this.get('scene'), this.get('camera'));
+  renderAnimation: function() {
+    //requestAnimationFrame (this.get('render'));
+    //this.get('renderer').render(this.get('scene'), this.get('camera'));
   },
 
   didInsertElement: function() {
-    this.get('scene').add(this.get('renderer'));
     this.$().append(this.get('renderer.domElement'));
-    this.get('renderer').render(this.get('scene'), this.get('camera'));
+    //this.get('scene').add(this.get('renderer'));
+    //this.get('renderer').render(this.get('scene'), this.get('camera'));
 
-    this.render();
-
+    //this.renderAnimation();
   }
 
 });
