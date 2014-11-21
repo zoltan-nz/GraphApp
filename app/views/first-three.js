@@ -8,31 +8,60 @@ export default Ember.View.extend({
   color: 0x00ff00,
   z: 5,
 
-  eventObject: null,
+  eventObject: {},
+
+  oldPageX: null,
+  oldPageY: null,
 
   clientX: function() {
-    return this.get('eventObject.clientX')
+    return this.get('eventObject.clientX');
   }.property('eventObject.clientX'),
 
   clientY: function() {
-    return this.get('eventObject.clientY')
+    return this.get('eventObject.clientY');
   }.property('eventObject.clientY'),
 
   offsetX: function() {
-    return this.get('eventObject.offsetX')
+    return this.get('eventObject.offsetX');
   }.property('eventObject.offsetX'),
 
   offsetY: function() {
-    return this.get('eventObject.offsetY')
+    return this.get('eventObject.offsetY');
   }.property('eventObject.offsetY'),
 
   pageX: function() {
-    return this.get('eventObject.pageX')
+    return this.get('eventObject.pageX');
   }.property('eventObject.pageX'),
 
   pageY: function() {
-    return this.get('eventObject.pageY')
+    return this.get('eventObject.pageY');
   }.property('eventObject.pageY'),
+
+  moveX: function() {
+
+    var oldPageX = this.get('oldPageX'),
+        pageX    = this.get('pageX');
+
+    if (oldPageX) {
+      ((oldPageX-pageX) > 0) ? this.send('moveLeft') : this.send('moveRight');
+      this.set('oldPageX', pageX);
+    } else {
+      this.set('oldPageX', this.get('pageX'));
+    }
+  }.observes('pageX'),
+
+  moveY: function() {
+
+    var oldPageY = this.get('oldPageY'),
+        pageY    = this.get('pageY');
+
+    if (oldPageY) {
+      ((oldPageY-pageY) > 0) ? this.send('moveUp') : this.send('moveDown');
+      this.set('oldPageY', pageY);
+    } else {
+      this.set('oldPageY', this.get('pageY'));
+    }
+  }.observes('pageY'),
 
   scene: function() {
     return new THREE.Scene();
@@ -70,42 +99,54 @@ export default Ember.View.extend({
     camera.updateProjectionMatrix();
   }.on('init').observes('z', 'width', 'height'),
 
+  renderRunner: function() {
+    this.get('renderer').render( this.get('scene'), this.get('camera') );
+  },
+
   didInsertElement: function() {
 
     this.$('#cube').append( this.get('renderer').domElement );
     this.get('scene').add( this.get('cube') );
 
-    var that = this;
-
-    function render() {
-      requestAnimationFrame( render );
-
-      that.get('cube').rotation.x += 0.1;
-      that.get('cube').rotation.y += 0.1;
-
-      that.get('renderer').render( that.get('scene'), that.get('camera') );
-    }
-
-    render();
+    this.renderRunner();
   },
 
   click: function() {
-    console.log('click');
     this.get('cube').rotation.x += 0.1;
     this.get('cube').rotation.y += 0.1;
-    this.get('render');
+    this.renderRunner();
   },
 
-  mouseEnter: function(event, view) {
+  mouseEnter: function(event) {
      this.set('eventObject', event);
   },
 
-  mouseLeave: function(event, view) {
+  mouseLeave: function(event) {
     this.set('eventObject', event);
   },
 
-  mouseMove: function(event, view) {
+  mouseMove: function(event) {
     this.set('eventObject', event);
-  }
+  },
 
+  actions: {
+    moveLeft: function() {
+      this.get('cube').rotation.x += 0.1;
+      this.renderRunner();
+    },
+
+    moveRight: function() {
+      this.get('cube').rotation.x -= 0.1;
+      this.renderRunner();
+    },
+
+    moveUp: function() {
+      this.get('cube').rotation.y += 0.1;
+      this.renderRunner();
+    },
+
+    moveDown: function() {
+      this.get('cube').rotation.y -= 0.1;
+    }
+  }
 });
