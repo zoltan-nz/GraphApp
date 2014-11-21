@@ -1,5 +1,7 @@
 export default Ember.View.extend({
 
+  templateName: 'views/first-three',
+
   width: 300,
   height: 300,
   color: 0x00ff00,
@@ -11,7 +13,7 @@ export default Ember.View.extend({
 
   camera: function() {
     return new THREE.PerspectiveCamera( 75, this.get('width')/this.get('height'), 0.1, 1000);
-  }.property('width', 'height'),
+  }.property(),
 
   renderer: function() {
     return new THREE.WebGLRenderer();
@@ -33,24 +35,18 @@ export default Ember.View.extend({
     this.get('renderer').setSize(this.get('width'), this.get('width'));
   }.on('init').observes('width', 'height'),
 
-  cameraZChanged: function() {
-    this.get('camera').position.z = this.get('z');
-  }.on('init').observes('z'),
+  cameraParamsChanged: function() {
+    var camera = this.get('camera');
+
+    camera.aspect = this.get('width')/this.get('height');
+    camera.position.z = this.get('z');
+    camera.updateProjectionMatrix();
+  }.on('init').observes('z', 'width', 'height'),
 
   didInsertElement: function() {
 
-    var scene = this.get('scene');
-    var camera = this.get('camera');
-
-    //var renderer = this.get('renderer');
-    //renderer.setSize( this.get('width'), this.get('width') );
-
-    this.$().append( this.get('renderer').domElement );
-
-    //var geometry = this.get('geometry');
-    //var material = this.get('material');
-    //var cube = new THREE.Mesh( geometry, material );
-    scene.add( this.get('cube') );
+    this.$('#cube').append( this.get('renderer').domElement );
+    this.get('scene').add( this.get('cube') );
 
     var that = this;
 
@@ -68,6 +64,9 @@ export default Ember.View.extend({
 
   click: function() {
     console.log('click');
+    this.get('cube').rotation.x += 0.1;
+    this.get('cube').rotation.y += 0.1;
+    this.get('render');
   }
 
 });
