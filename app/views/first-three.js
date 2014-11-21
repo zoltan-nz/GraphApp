@@ -1,11 +1,38 @@
 export default Ember.View.extend({
 
+  classNames: 'first-three',
   templateName: 'views/first-three',
 
   width: 300,
   height: 300,
   color: 0x00ff00,
   z: 5,
+
+  eventObject: null,
+
+  clientX: function() {
+    return this.get('eventObject.clientX')
+  }.property('eventObject.clientX'),
+
+  clientY: function() {
+    return this.get('eventObject.clientY')
+  }.property('eventObject.clientY'),
+
+  offsetX: function() {
+    return this.get('eventObject.offsetX')
+  }.property('eventObject.offsetX'),
+
+  offsetY: function() {
+    return this.get('eventObject.offsetY')
+  }.property('eventObject.offsetY'),
+
+  pageX: function() {
+    return this.get('eventObject.pageX')
+  }.property('eventObject.pageX'),
+
+  pageY: function() {
+    return this.get('eventObject.pageY')
+  }.property('eventObject.pageY'),
 
   scene: function() {
     return new THREE.Scene();
@@ -32,7 +59,7 @@ export default Ember.View.extend({
   }.property('geometry', 'material'),
 
   rendererSizeChanged: function() {
-    this.get('renderer').setSize(this.get('width'), this.get('width'));
+    this.get('renderer').setSize(this.get('width'), this.get('height'));
   }.on('init').observes('width', 'height'),
 
   cameraParamsChanged: function() {
@@ -67,6 +94,18 @@ export default Ember.View.extend({
     this.get('cube').rotation.x += 0.1;
     this.get('cube').rotation.y += 0.1;
     this.get('render');
+  },
+
+  mouseEnter: function(event, view) {
+     this.set('eventObject', event);
+  },
+
+  mouseLeave: function(event, view) {
+    this.set('eventObject', event);
+  },
+
+  mouseMove: function(event, view) {
+    this.set('eventObject', event);
   }
 
 });
