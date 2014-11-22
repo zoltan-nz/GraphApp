@@ -5,7 +5,8 @@ export default Ember.Route.extend({
   //},
 
   model: function() {
-    return this.store.find('todo');
+    var status = this.controllerFor('application').get('status');
+    return (status === 'online') ? this.store.find('todo') : [{body: 'The server is offline'}];
   }
 
   //afterModel: function(model, transition) {

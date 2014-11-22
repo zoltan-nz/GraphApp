@@ -6,7 +6,7 @@ export default Ember.View.extend({
   width: 300,
   height: 300,
   color: 0x00ff00,
-  z: 5,
+  z: 2,
 
   eventObject: {},
 
@@ -97,6 +97,7 @@ export default Ember.View.extend({
     camera.aspect = this.get('width')/this.get('height');
     camera.position.z = this.get('z');
     camera.updateProjectionMatrix();
+    this.renderRunner();
   }.on('init').observes('z', 'width', 'height'),
 
   renderRunner: function() {

@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('delete');
   });
   this.resource('user', { path: 'users/:user_id' }, function() { });
+  this.route('threejs');
 });
 
 export default Router;
