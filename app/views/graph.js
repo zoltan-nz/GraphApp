@@ -36,10 +36,17 @@ export default Ember.View.extend(MouseTrackingMixin, {
     var ctx = this.get('ctx');
     ctx.beginPath();
     ctx.moveTo(10,10);
-    ctx.lineTo(10, parseInt(this.get('canvasHeight'))-40);
+    ctx.lineTo(10,40);
     ctx.closePath();
     ctx.stroke();
-  }
+  },
 
+  mouseMove: function(event) {
+    this._super(event);
+    var ctx = this.get('ctx'),
+        imageData = ctx.createImageData(1,1);
+
+    ctx.putImageData(imageData, parseFloat(this.get('offsetX')), parseFloat(this.get('offsetY')));
+  }
 
 })
