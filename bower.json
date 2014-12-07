@@ -16,7 +16,8 @@
     "bootstrap-sass-official": "^3.3.1",
     "d3": "^3.4.11",
     "moment": "^2.8.4",
-    "three.js": ""
+    "three.js": "",
+    "paper": ""
   },
   "resolutions": {
     "ember": "canary",
