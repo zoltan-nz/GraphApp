@@ -3,8 +3,8 @@
   "dependencies": {
     "handlebars": "2.0.0",
     "jquery": "^1.11.1",
-    "ember": "components/ember#canary",
-    "ember-data": "components/ember-data#canary",
+    "ember": "~1.9.0",
+    "ember-data": "^1.0.0-beta.12",
     "ember-resolver": "^0.1.10",
     "loader.js": "stefanpenner/loader.js#1.0.1",
     "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.3",
@@ -19,7 +19,7 @@
     "three.js": ""
   },
   "resolutions": {
-    "ember": "canary",
-    "ember-data": "canary"
+    "ember": "1.9.0",
+    "ember-data": "^1.0.0-beta.12"
   }
 }

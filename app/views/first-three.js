@@ -43,7 +43,11 @@ export default Ember.View.extend({
         pageX    = this.get('pageX');
 
     if (oldPageX) {
-      ((oldPageX-pageX) > 0) ? this.send('moveLeft') : this.send('moveRight');
+      if ((oldPageX - pageX) > 0) {
+        this.send('moveLeft');
+      } else {
+        this.send('moveRight');
+      }
       this.set('oldPageX', pageX);
     } else {
       this.set('oldPageX', this.get('pageX'));
@@ -56,7 +60,11 @@ export default Ember.View.extend({
         pageY    = this.get('pageY');
 
     if (oldPageY) {
-      ((oldPageY-pageY) > 0) ? this.send('moveUp') : this.send('moveDown');
+      if (oldPageY - pageY > 0) {
+        this.send('moveUp');
+      } else {
+        this.send('moveDown');
+      }
       this.set('oldPageY', pageY);
     } else {
       this.set('oldPageY', this.get('pageY'));

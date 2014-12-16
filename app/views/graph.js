@@ -16,7 +16,7 @@ export default Ember.View.extend(MouseTrackingMixin, {
   },
 
   canvasSizeChanged: function() {
-    if (!this.get('ctx')) return;
+    if (!this.get('ctx')) {return;}
     this._clean();
     this._drawAxis();
   }.observes('canvasWidth', 'canvasHeight'),
@@ -49,4 +49,4 @@ export default Ember.View.extend(MouseTrackingMixin, {
     ctx.putImageData(imageData, parseFloat(this.get('offsetX')), parseFloat(this.get('offsetY')));
   }
 
-})
+});
