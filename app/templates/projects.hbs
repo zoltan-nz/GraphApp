@@ -1,0 +1,11 @@
+<h1>Projects</h1>
+
+{{outlet}}
+
+<table class="table table-bordered table-striped table-hover">
+  <tbody>
+    {{#each project in model}}
+      <tr><td>{{#link-to 'projects.todos' project}}{{project.title}}{{/link-to}}</td></tr>
+    {{/each}}
+  </tbody>
+</table>

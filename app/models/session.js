@@ -5,4 +5,4 @@ export default DS.Model.extend({
   remember: DS.attr('boolean', { defaultValue: false }),
 
   user: DS.belongsTo('user')
-})
+});
