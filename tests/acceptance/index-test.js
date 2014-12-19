@@ -19,3 +19,11 @@ test('visiting /', function() {
     equal(currentPath(), 'index');
   });
 });
+
+test('has First Second Third', function() {
+  visit('/');
+
+  andThen(function() {
+    equal(find('.list').text().trim().replace(/\s\s/g, ''), 'First Second Third');
+  });
+});
