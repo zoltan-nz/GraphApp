@@ -4,6 +4,7 @@
   "launch_in_ci": [
     "PhantomJS"
   ],
+  "phantomjs_debug_port": 8999,
   "launch_in_dev": [
     "PhantomJS",
     "Chrome"
