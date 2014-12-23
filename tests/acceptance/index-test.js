@@ -13,7 +13,7 @@ module('Acceptance: Index', {
 });
 
 test('visiting /', function() {
-  visit('/');
+  visit('');
 
   andThen(function() {
     equal(currentPath(), 'index');
@@ -21,7 +21,7 @@ test('visiting /', function() {
 });
 
 test('has First Second Third', function() {
-  visit('/');
+  visit('');
 
   andThen(function() {
     equal(find('.list').text().trim().replace(/\s\s/g, ''), 'First Second Third');

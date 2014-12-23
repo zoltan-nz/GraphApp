@@ -1,15 +1,2 @@
-<h1>This is index</h1>
-
-<div class="list">
-  <ul>
-    {{#each menus}}
-      <li>{{this}}</li>
-    {{/each}}
-  </ul>
-</div>
-
-<svg>
-  {{todo-line}}
-  {{todo-line}}
-</svg>
+{{#svg-container}}{{todo-line id='first-line'}}{{todo-line id='second-line'}}{{/svg-container}}
 

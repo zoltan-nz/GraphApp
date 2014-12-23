@@ -6,7 +6,6 @@
   ],
   "phantomjs_debug_port": 8999,
   "launch_in_dev": [
-    "PhantomJS",
-    "Chrome"
+    "PhantomJS"
   ]
 }

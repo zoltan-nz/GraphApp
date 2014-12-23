@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'g',
-  className: 'todo-line'
+  tagName: 'svg',
+  className: 'svg-container'
 });
